@@ -40,7 +40,7 @@ class CFDOperation {
 			$this->closedPrice = $row[ self::PRICE ];
 			$this->closedDateTime = $row[ self::TIMESTAMP ];
 			$this->closedPrice = $row[ self::STATUS ] == self::POSSITION_CLOSE ? $row[ self::PRICE ] : 0;
-			$this->result = $row[ self::RPL_CONVERTED ];
+			$this->result += $row[ self::RPL_CONVERTED ];
 
 		} elseif( $this->isSwapOperation( $row[ self::STATUS ] ) ) {
 			$this->swap += $row[ self::SWAP_CONVERTED ];

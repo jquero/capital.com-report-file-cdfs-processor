@@ -92,11 +92,11 @@ class CFDsProcessor {
 			$row[] = $op->getOpenedDateTime();
 			$row[] = $op->getClosedDateTime();
 			$row[] = $op->getQuantity();
-			$row[] = $op->getOpenedPrice();
-			$row[] = $op->getClosedPrice();
-			$row[] = $op->getResult();
-			$row[] = $op->getSwap();
-			$row[] = $op->calculateIncome();
+			$row[] = str_replace( '.', ',', (string) $op->getOpenedPrice() );
+			$row[] = str_replace( '.', ',', (string) $op->getClosedPrice() );
+			$row[] = str_replace( '.', ',', (string) $op->getResult() );
+			$row[] = str_replace( '.', ',', (string) $op->getSwap() );
+			$row[] = str_replace( '.', ',', (string) $op->calculateIncome() );
 
 			fputcsv( $fd, $row, $separator );
 		}
